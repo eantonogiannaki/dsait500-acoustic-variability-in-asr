@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy.spatial import ConvexHull, QhullError
 
-def plot_variant(builder, save_path=False, kind='bar'):
+def plot_variant(builder, kind, save_path=False):
     if kind not in ('bar', 'swarm'):
         raise ValueError(f"Unknown kind '{kind}'. Available: ['bar', 'swarm']")
     if builder.variant_df is None:
@@ -25,7 +25,7 @@ def plot_variant(builder, save_path=False, kind='bar'):
     else:
         plt.show()
 
-def _plot_1d(builder, kind='bar'):
+def _plot_1d(builder, kind):
     metric_col = builder.metric_cols[0]
     target_speaker = builder.target_speaker
     plot_data = builder.per_speaker_df.sort_values(metric_col)
