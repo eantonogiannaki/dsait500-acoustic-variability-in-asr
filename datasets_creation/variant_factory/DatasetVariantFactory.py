@@ -1,6 +1,6 @@
-from AcousticMetricsCalculator import AcousticMetricsCalculator
-from DatasetVariantBuilder import DatasetVariantBuilder
-from UtteranceBalancer import UtteranceBalancer
+from variant_factory.AcousticMetricsCalculator import AcousticMetricsCalculator
+from variant_factory.DatasetVariantBuilder import DatasetVariantBuilder
+from variant_factory.UtteranceBalancer import UtteranceBalancer
 
 
 class DatasetVariantFactory:
