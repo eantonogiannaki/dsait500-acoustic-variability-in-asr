@@ -1,0 +1,29 @@
+paths:
+  features_dir: data_features
+  features_files: 
+   - extraction_read_split.csv
+   - extraction_hmi_split.csv
+  test_speakers_file: data_features/test_set.csv
+  variants_dir: dataset_variants/datasets
+
+data:
+  root: C:/Users/eanto/jasmin-data/Data
+  recordings_file: data/meta/xls/nl/recordings.xls
+  utterances_dirs:
+    - dump/raw/nl_test_hmi_all_hires
+    - dump/raw/nl_test_read_all_hires
+
+feature_schema:
+  speaker_col: Speaker
+  phonemes_count_col: Number of Phonemes
+  phonemes_duration_col: Duration Phonemes
+  audio_duration_col: Audio Duration
+  F0_sum_col: Sum of F0 (Hz)
+  voiced_timeframes_num_col: Number of Voiced Frames
+  file_col: Filename
+  formants: [F1, F2]
+  phonemes: [I, E, A, O, Y, '@', i, y, e, '2', a, o, u]
+  sum_col_pattern: 'Sum of {formant} {phoneme} (bark)'
+  count_col_pattern: 'Number of {formant} {phoneme}'
+
+remove_speakers: [N000195, N000216, N000337, N000204]

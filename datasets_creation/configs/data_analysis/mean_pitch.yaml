@@ -1,0 +1,69 @@
+metrics:
+  - articulation_rate
+  - audio_duration
+  - mean_pitch
+  - ['mean_formant_frequency', 'F1']
+  - ['mean_formant_frequency', 'F2']
+  - ['mean_vowel_formant_frequency', 'F1', 'I']
+  - ['mean_vowel_formant_frequency', 'F2', 'I']
+  - ['mean_vowel_formant_frequency', 'F1', 'E']
+  - ['mean_vowel_formant_frequency', 'F2', 'E']
+  - ['mean_vowel_formant_frequency', 'F1', 'A']
+  - ['mean_vowel_formant_frequency', 'F2', 'A']
+  - ['mean_vowel_formant_frequency', 'F1', 'O']
+  - ['mean_vowel_formant_frequency', 'F2', 'O']
+  - ['mean_vowel_formant_frequency', 'F1', 'Y']
+  - ['mean_vowel_formant_frequency', 'F2', 'Y']
+  - ['mean_vowel_formant_frequency', 'F1', '@']
+  - ['mean_vowel_formant_frequency', 'F2', '@']
+  - ['mean_vowel_formant_frequency', 'F1', 'i']
+  - ['mean_vowel_formant_frequency', 'F2', 'i']
+  - ['mean_vowel_formant_frequency', 'F1', 'y']
+  - ['mean_vowel_formant_frequency', 'F2', 'y']
+  - ['mean_vowel_formant_frequency', 'F1', 'e']
+  - ['mean_vowel_formant_frequency', 'F2', 'e']
+  - ['mean_vowel_formant_frequency', 'F1', '2']
+  - ['mean_vowel_formant_frequency', 'F2', '2']
+  - ['mean_vowel_formant_frequency', 'F1', 'a']
+  - ['mean_vowel_formant_frequency', 'F2', 'a']
+  - ['mean_vowel_formant_frequency', 'F1', 'o']
+  - ['mean_vowel_formant_frequency', 'F2', 'o']
+  - ['mean_vowel_formant_frequency', 'F1', 'u']
+  - ['mean_vowel_formant_frequency', 'F2', 'u']
+
+variant_metric: mean_pitch
+
+sweep:
+  seconds_per_speaker: [120, 500, 120] # [start, stop, step]
+  speaker_counts: [50, 100]
+  bucket_counts: [5, 10, 25, 50]
+  cluster_counts: [5, 10, 25, 50]
+  normalization: [false, true]
+  num_repeats: 100
+
+build:
+  num_speakers: 100
+  seconds_per_speaker: 360
+  normalization: false
+  variants:
+    - variant: low_variability
+      params: {quantile: 0.5}
+      plot: swarm  # bar, swarm, or null for no plot
+    - variant: extreme_spread
+      params: {random_state: 1}
+      plot: swarm
+    - variant: bucketed
+      params: {num_buckets: 50, bucket_method: qcut, random_state: 1}
+      plot: swarm
+    - variant: bucketed
+      params: {num_buckets: 50, bucket_method: cut, random_state: 1}
+      plot: swarm
+    - variant: bucketed_kmeans
+      params: {num_clusters: 50, random_state: 1}
+      plot: swarm
+    - variant: bucketed_kmeans_constrained
+      params: {num_clusters: 50, random_state: 1}
+      plot: swarm
+
+results:
+  results_dir: results/data_analysis/mean_pitch
