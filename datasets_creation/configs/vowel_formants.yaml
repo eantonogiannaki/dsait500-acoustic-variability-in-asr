@@ -1,0 +1,62 @@
+metrics:
+  - articulation_rate
+  - audio_duration
+  - mean_pitch
+  - ['mean_formant_frequency', 'F1']
+  - ['mean_formant_frequency', 'F2']
+  - ['mean_vowel_formant_frequency', 'F1', 'I']
+  - ['mean_vowel_formant_frequency', 'F2', 'I']
+  - ['mean_vowel_formant_frequency', 'F1', 'E']
+  - ['mean_vowel_formant_frequency', 'F2', 'E']
+  - ['mean_vowel_formant_frequency', 'F1', 'A']
+  - ['mean_vowel_formant_frequency', 'F2', 'A']
+  - ['mean_vowel_formant_frequency', 'F1', 'O']
+  - ['mean_vowel_formant_frequency', 'F2', 'O']
+  - ['mean_vowel_formant_frequency', 'F1', 'Y']
+  - ['mean_vowel_formant_frequency', 'F2', 'Y']
+  - ['mean_vowel_formant_frequency', 'F1', '@']
+  - ['mean_vowel_formant_frequency', 'F2', '@']
+  - ['mean_vowel_formant_frequency', 'F1', 'i']
+  - ['mean_vowel_formant_frequency', 'F2', 'i']
+  - ['mean_vowel_formant_frequency', 'F1', 'y']
+  - ['mean_vowel_formant_frequency', 'F2', 'y']
+  - ['mean_vowel_formant_frequency', 'F1', 'e']
+  - ['mean_vowel_formant_frequency', 'F2', 'e']
+  - ['mean_vowel_formant_frequency', 'F1', '2']
+  - ['mean_vowel_formant_frequency', 'F2', '2']
+  - ['mean_vowel_formant_frequency', 'F1', 'a']
+  - ['mean_vowel_formant_frequency', 'F2', 'a']
+  - ['mean_vowel_formant_frequency', 'F1', 'o']
+  - ['mean_vowel_formant_frequency', 'F2', 'o']
+  - ['mean_vowel_formant_frequency', 'F1', 'u']
+  - ['mean_vowel_formant_frequency', 'F2', 'u']
+
+variant_metric: ['mean_formant_frequency', 
+                 ['F1', 'F2'],
+                 ['I', 'E', 'A', 'O', 'Y', '@', 'i', 'y', 'e', '2', 'a', 'o', 'u']
+                ]
+results_folder_name: vowel_formants 
+num_speakers: 100
+seconds_per_speaker: 360
+normalization: true
+variants:
+  - variant: low_variability
+    params:
+    - {quantile: 0.25}
+    - {quantile: 0.5}
+    - {quantile: 0.75}
+    plot: null
+  - variant: extreme_spread
+    params:
+    - {random_state: 1}
+    - {random_state: 2}
+    - {random_state: 3}
+    plot: null
+  - variant: bucketed_kmeans
+    params:
+    - {num_clusters: 50, random_state: 1}
+    - {num_clusters: 50, random_state: 2}
+    - {num_clusters: 50, random_state: 3}
+    plot: null
+
+

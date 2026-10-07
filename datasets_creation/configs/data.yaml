@@ -4,7 +4,7 @@ paths:
    - extraction_read_split.csv
    - extraction_hmi_split.csv
   test_speakers_file: data_features/test_set.csv
-  variants_dir: dataset_variants/datasets
+  variants_dir: dataset_variants/
 
 data:
   root: C:/Users/eanto/jasmin-data/Data
@@ -27,3 +27,7 @@ feature_schema:
   count_col_pattern: 'Number of {formant} {phoneme}'
 
 remove_speakers: [N000195, N000216, N000337, N000204]
+
+split:
+  validation_frac: 0.15
+  random_state: 42
