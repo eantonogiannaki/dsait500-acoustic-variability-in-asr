@@ -1,6 +1,6 @@
-from variant_factory.AcousticMetricsCalculator import AcousticMetricsCalculator
-from variant_factory.DatasetVariantBuilder import DatasetVariantBuilder
-from variant_factory.UtteranceBalancer import UtteranceBalancer
+from .AcousticMetricsCalculator import AcousticMetricsCalculator
+from .DatasetVariantBuilder import DatasetVariantBuilder
+from .UtteranceBalancer import UtteranceBalancer
 
 
 class DatasetVariantFactory:
@@ -17,9 +17,8 @@ class DatasetVariantFactory:
     def create_utterance_balancer(self, seconds_per_speaker):
         return UtteranceBalancer(schema=self.schema, seconds_per_speaker=seconds_per_speaker)
 
-    def create_dataset_builder(self, num_speakers, metric, training_features, scaler=None, normalization=False):
+    def create_dataset_builder(self, num_speakers, metric, training_features, normalization=False):
         return DatasetVariantBuilder(
             schema=self.schema, num_speakers=num_speakers, metric=metric,
-            calculator=self.acoustics_calculator, training_features=training_features,
-            scaler=scaler, normalization=normalization
+            calculator=self.acoustics_calculator, training_features=training_features, normalization=normalization
         )

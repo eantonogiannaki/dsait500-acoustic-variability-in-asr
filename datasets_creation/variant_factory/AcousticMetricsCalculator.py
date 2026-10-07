@@ -230,7 +230,7 @@ class AcousticMetricsCalculator:
         """The column name holding `column`'s standardized values"""
         return f'{column}{self.NORMALIZED_SUFFIX}'
 
-    def compute_per_speaker(self, df, metrics=None, scaler=None, normalization=False):
+    def compute_per_speaker(self, df, metrics=None, normalization=False):
         """Computes each metric's value. When `normalization` is set, each
         column also gets a sibling `normalized_column(column)` holding its standardized
         value."""
@@ -250,9 +250,8 @@ class AcousticMetricsCalculator:
                 metric_columns.append(metric_column)
 
         if normalization:
-            if not scaler:
-                scaler = StandardScaler()
-                scaler.fit(per_speaker[metric_columns])
+            scaler = StandardScaler()
+            scaler.fit(per_speaker[metric_columns])
             per_speaker = per_speaker.copy()
             normalized_columns = [self.normalized_column(column) for column in metric_columns]
             per_speaker[normalized_columns] = scaler.transform(per_speaker[metric_columns])

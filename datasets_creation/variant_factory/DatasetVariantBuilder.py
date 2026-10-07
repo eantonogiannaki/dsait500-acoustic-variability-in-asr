@@ -33,8 +33,7 @@ class DatasetVariantBuilder:
         'bucketed_kmeans_constrained': 'select_kmeans_constrained_speakers',
     }
 
-    def __init__(self, schema, num_speakers, metric, calculator, training_features, 
-                 scaler=None, normalization=False):
+    def __init__(self, schema, num_speakers, metric, calculator, training_features, normalization=False):
         """Initialize the builder and compute each speaker's metric value(s)
         
         Args
@@ -46,7 +45,6 @@ class DatasetVariantBuilder:
             and filename columns plus the feature columns `calculator` needs for `metric`.
             normalization: if True, the distance-based selection runs on standardized metric
             values so differently-scaled metrics contribute equally
-            scaler: optional fitted scaler used when `normalization` is on.
         """
         self.schema = schema
         self.speaker_col = self.schema.speaker_col
@@ -57,7 +55,7 @@ class DatasetVariantBuilder:
 
         self.per_speaker_df = calculator.compute_per_speaker(
             training_features, metrics=calculator.component_specs(metric),
-            normalization=normalization, scaler=scaler
+            normalization=normalization
         )
         # when normalization is True, the selecetion runs on the standardized columns (`self.cluster_cols`), so
         # differently-scaled metrics don't dominate distances. `self.metric_cols` stay on actual units and
