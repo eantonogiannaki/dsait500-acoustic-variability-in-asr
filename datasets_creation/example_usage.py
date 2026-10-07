@@ -10,7 +10,7 @@ import pandas as pd
 
 from variant_factory.FeatureSchema import FeatureSchema
 from variant_factory.DatasetVariantFactory import DatasetVariantFactory
-from plots import plot_variant
+from plotting.plots import plot_variant
 
 METRIC = 'articulation_rate'
 NUM_SPEAKERS = 50
