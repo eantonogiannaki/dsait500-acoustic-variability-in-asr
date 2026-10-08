@@ -3,3 +3,4 @@ doc/
 __pycache__/
 data_features/
 results/
+*.ipynb
