@@ -1,0 +1,10 @@
+k-means-constrained==0.9.1
+matplotlib==3.11.2
+numpy==2.5.3
+pandas==2.3.3
+PyYAML==6.0.1
+scikit-learn==1.9.1
+scipy==1.18.1
+seaborn==0.13.2
+vendi-score==0.0.3
+xlrd==2.0.2
