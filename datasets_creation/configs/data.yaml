@@ -26,6 +26,8 @@ feature_schema:
   sum_col_pattern: 'Sum of {formant} {phoneme} (bark)'
   count_col_pattern: 'Number of {formant} {phoneme}'
 
+# these speakers are removed because they have either HMI or read speech
+# we want speakers with both types of speech in the analysis
 remove_speakers: [N000195, N000216, N000337, N000204]
 
 split:
