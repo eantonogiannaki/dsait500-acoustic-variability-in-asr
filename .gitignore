@@ -1,5 +1,4 @@
 dataset_variants/
-doc/
 __pycache__/
 data_features/
 datasets_creation/example-plots/
