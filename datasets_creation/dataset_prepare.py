@@ -34,7 +34,6 @@ from datasets_creation.data_loading.data_loading import (
     select_test_audio,
 )
 from datasets_creation.plotting.plots import plot_variant
-from datasets_creation.variant_factory.AcousticMetricsCalculator import AcousticMetricsCalculator
 from datasets_creation.variant_factory.DatasetVariantFactory import DatasetVariantFactory
 from datasets_creation.variant_factory.FeatureSchema import FeatureSchema
 
